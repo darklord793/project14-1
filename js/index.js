@@ -86,7 +86,6 @@ document.getElementById(17).addEventListener("click", function(){
   del();
 	display();
 });
-
 //Keyboard support
 document.addEventListener('keydown', function(event) {
   if((event.keyCode > 47) && (event.keyCode < 58))  { values.push(event.keyCode - 48);
