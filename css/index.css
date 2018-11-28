@@ -10,25 +10,6 @@ body {
 .container {
 	display: inline-block;
 }
-#display, .button, .bigbutton {
-	border-width: 2px;
-	border-color: #000;
-	border-style: solid;
-	background-color: #fff;
-	display: inline-block;
-	margin: 3px;
-	text-align: center;
-}
-.button:hover, .bigbutton:hover {
-	color: #fff;
-	background-color: #000;
-}
-.button {
-	width: 73px;
-}
-.bigbutton {
-	width: 164px;
-}
 #display {
 	width: 305px;
 	height: 20px;

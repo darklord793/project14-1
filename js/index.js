@@ -1,31 +1,32 @@
 //Global variables
-var results = document.getElementById("display");
-var inputs = ["","",""];
-var values = [];
+let results = document.getElementById("display");
+let inputs = ["","",""];
+let values = [];
 
 // Arithmetic functions
-var add = function(a, b) {return a + b;}
-var subtract = function(a, b) {return a - b;}
-var multiply = function(a, b) {return a * b;}
-var divide = function(a, b) {return a / b;}
-var equals = function() {
+let add = function(a, b) {return a + b;}
+let subtract = function(a, b) {return a - b;}
+let multiply = function(a, b) {return a * b;}
+let divide = function(a, b) {return a / b;}
+
+const equals = function() {
 	if (inputs[1] === "+") {
-		var sum = add(parseFloat(inputs[0]), parseFloat(inputs[2]));
+		let sum = add(parseFloat(inputs[0]), parseFloat(inputs[2]));
 		clear();	
 		values.push(sum);
 	}
 	else if (inputs[1] === "-") {
-		var difference = subtract(parseFloat(inputs[0]), parseFloat(inputs[2]));
+		let difference = subtract(parseFloat(inputs[0]), parseFloat(inputs[2]));
 		clear();	
 		values.push(difference)
 	}
 	else if (inputs[1] === "*") {
-		var product = multiply(parseFloat(inputs[0]), parseFloat(inputs[2]));
+		let product = multiply(parseFloat(inputs[0]), parseFloat(inputs[2]));
 		clear();	
 		values.push(product);	
 	}
 	else if (inputs[1] === "/") {
-		var quotient = divide(parseFloat(inputs[0]), parseFloat(inputs[2]));
+		let quotient = divide(parseFloat(inputs[0]), parseFloat(inputs[2]));
 		clear();
 		values.push(quotient);
 	}
@@ -33,41 +34,41 @@ var equals = function() {
 }
 
 // Functions for storing and displaying user input
-var update = function(value) {
+let update = function(value) {
 	inputs.push(value);
 	inputs.shift();
 }
-var clear = function() {
+let clear = function() {
 	inputs = ["","",""];
 	values = [];
 	display();
 }
-var del = function() {
+let del = function() {
   if(values.length > 0) {
     values.pop();
   }
   else {
-    for(var i = 2; i >= 0; i--) {
-      var x = inputs[i]
+    for(let i = 2; i >= 0; i--) {
+      let x = inputs[i]
       if(inputs[i]) { 
-        var y = x.slice(0,-1); 
+        let y = x.slice(0,-1); 
         inputs[i] = y;
       }
     }
   } 
 }
-var display = function() {
+let display = function() {
 	results.innerHTML = inputs.join(" ") + " " + values.join("");
 }
 
 // Event listeners for mouse input
-for (var i = 0; i < 11; i++) {
+for (let i = 0; i < 11; i++) {
 	document.getElementById(i).addEventListener("click", function() {
 		values.push(this.innerHTML);
 		display();
 	});
 }
-for (var i = 11; i < 15; i++) {
+for (let i = 11; i < 15; i++) {
 	document.getElementById(i).addEventListener("click", function() {
 		update(values.join(""));
 		update(this.innerHTML);
